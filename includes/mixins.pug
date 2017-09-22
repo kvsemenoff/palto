@@ -1,0 +1,145 @@
+mixin menu(list, className)
+	ul(class=className)
+		for item in list
+			li
+				a(href="#")=item
+mixin ulli(List, className, span)
+	if span == 'true'
+		if className==''
+			ul
+				for item in List
+					li
+						span=item	
+		else
+			ul(class=className)
+				for item in List
+					li
+						span=item
+	else 
+		if className==''
+			ul
+				for item in List
+					li=item	
+		else
+			ul(class=className)
+				for item in List
+					li=item	
+mixin ProgramItem(number, title, List)
+	.program-item
+		.program-item_headline
+			.program-item_left
+				.program-item_number
+					span=number
+			.program-item_right
+				.program-item_title=title
+		+ulli(List, 'program-list', 'true')
+
+mixin EmailSection(className, title, subtitle, titleBig, submitText, submitClass, formClassName)
+	div(class=className)
+		.container
+			.row
+				.col-md-12
+					- var newtitle =  title
+					if titleBig == 'false'
+						span.subscribe-title_small= newtitle
+					else 
+						span.subscribe-title= newtitle
+					if subtitle != ''
+						span.subscribe-subtitle=subtitle
+					form(class=formClassName action="#" class="form-line")
+						input(type="text" name="phone" class="phone" placeholder='Введите ваш E-mail')
+						input(type="hidden" name='formname' value=newtitle)
+						input(type="submit" value=submitText class=submitClass)
+mixin AuthorItem(imgSrc, name, description)
+	.author-item
+		.author-item_imgbox
+			img(src=imgSrc)
+		span.author-name=name
+		p.author-desc=description
+mixin HeadLine(headln, forwhat)
+	case forwhat
+		when 0
+			span.common-title.common-title_main=headln
+		when 1
+			span.common-title.common-title_sidebar-direct=headln
+		when 2
+			span.common-title.common-title_sidebar-direct.common-title_sidebar-traeng=headln
+		when 3
+			span.common-title.common-title_second=headln
+		default
+			span.common-title=headln
+mixin PriceItem(title, List, price, placem, active)
+	if active == 'true'
+		.price-item.price-item-active
+			span.price-title=title
+			.price-middle-content
+				+ulli(List, '', '')
+				a(class="price-more" href="") Подробнее
+			.price-box
+				span=price
+				span рублей
+			a(class="button", href="#byu" data-modal="modal") Купить
+			span.price-place=place
+	else
+		.price-item
+			span.price-title=title
+			.price-middle-content
+				+ulli(List, '', '')
+				a(class="price-more" href="") Подробнее
+			.price-box
+				span=price
+				span рублей
+			a(class="button", href="#byu" data-modal="modal") Купить
+			span.price-place=place
+mixin otzyv(title, img, text, link)
+	.testimonial
+		.testim_top
+			.testim_avatar
+				img(src=img)
+			span.testim_name=title
+		.testim_text
+			p=text
+		a(class="testim_more" href="#")=link
+mixin tovarItem(image, title, description, underlineTitle,underlineDescription, tovarpadding)
+	if tovarpadding=='false'
+		.tovar-item
+			a(href="#")
+				.tovar-item_imgbox
+					img(src='img/'+image)
+					- var titleVar = title
+				if underlineTitle=='false'
+					span.tovar-item_title !{titleVar}
+				else
+					span.tovar-item_title.tovar-item_title_underline !{titleVar}
+				if underlineDescription=='false'
+					span.tovar-item_description=description
+				else
+					span.tovar-item_description.tovar-item_description_underline=description
+	else
+		.tovar-item.tovar-item_padding
+			a(href="#")
+				.tovar-item_imgbox
+					img(src='img/'+image)
+					- var titleVar = title
+				if underlineTitle=='false'
+					span.tovar-item_title !{titleVar}
+				else
+					span.tovar-item_title.tovar-item_title_underline !{titleVar}
+				if underlineDescription=='false'
+					span.tovar-item_description=description
+				else
+					span.tovar-item_description.tovar-item_description_underline=description
+
+mixin rateTable(list)
+	table
+		each val, key in list
+			tr
+				td=val[0]
+				td=val[1]
+mixin rate(title, subtitle, description, list)
+	.rate
+		span.rate-title=title
+		if subtitle!=''
+			span.rate-sub-title=subtitle
+		+rateTable(list)
+		.rate-descr=description

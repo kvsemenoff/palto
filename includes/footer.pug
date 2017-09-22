@@ -1,0 +1,184 @@
+.footer-top
+	.container
+		.row
+			.col-lg-3.col-md-6
+				a(href="/")
+					img(src="img/footer_logo.png" class="footer-logo")
+				.copyright
+					span © 2014 — 2017 <br/> ООО «Алекс-Авто» <br/> Все права защищены.
+			.col-lg-3.col-md-6
+				- var list = ['Примеры работ','Цены','Предотвращенные угоны','Как мы работаем','О компании'];
+				+menu(list, 'footer-menu')
+			.col-lg-2.col-md-6
+				- var list = ['Новости','Вопрос-ответ','Статьи','Отзывы','Контакты'];
+				+menu(list, 'footer-menu')
+			.col-lg-4.col-md-6
+				ul.footer-right
+					li
+						a(href="#consult" class="button" data-modal="modal") Записаться на консультацию
+					li
+						a(href="#ask" class="ask" data-modal="modal")
+							span.icon-question
+							span Вопрос специалисту
+					li
+						a(href="#order" class="callback" data-modal="modal") 
+							span.icon-phone
+							span Заказать звонок
+.footer-bottom
+	.container
+		.row
+			.col-lg-12
+				p.
+					Обращаем Ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями ч. 2 ст. 437 Гражданского кодекса Российской Федерации. Для получения подробной информации о стоимости, наименовании и сроках оказания услуг, пожалуйста, обращайтесь по контактным телефонам. Конкретный перечень услуг и порядок их предоставления определяется в договоре оказания услуг, оформляемым между компанией и клиентом
+.toTop
+	i(class="fa fa-angle-up" aria-hidden="true")
+.modal-window#order
+	span.modal-close
+	h5 Обратный звонок
+	form(class="form-callback" action="#")
+		.p-row
+			.p-row_left
+				span Имя
+			.p-row_right
+				input(type="text" name="uname")
+		.p-row
+			.p-row_left
+				span Телефон
+			.p-row_right
+				input(type="text" name="phone")
+		.p-row
+			.p-row_left
+				span Удобное время для звонка
+			.p-row_right
+				label
+					input(type="radio" name="timecall" value="1")
+					span Утро (с 9:00 до 11:00)
+				label
+					input(type="radio" name="timecall" value="2") 
+					span Середина дня (с 13:00 до 17:00)
+				label
+					input(type="radio" name="timecall" value="3") 
+					span Вечер (с 16:00 до 18:00)
+		input(type="hidden" name="formname" value="Обратный звонок")
+		input(type="submit" class="button" value="Отправить")
+.modal-window#ask
+	span.modal-close
+	h5 Вопрос специалисту
+	form(class="form-ask" action="#")
+		.p-row
+			.p-row_left
+				span Имя
+			.p-row_right
+				input(type="text" name="uname")
+		.p-row
+			.p-row_left
+				span Телефон
+			.p-row_right
+				input(type="text" name="phone")
+		.p-row
+			.p-row_left
+				span Email
+			.p-row_right
+				input(type="text" name="email")
+		.p-row
+			.p-row_left
+				span Марка автомобиля
+			.p-row_right
+				input(type="text" name="marka")
+		.p-row
+			.p-row_left
+				span Год выпуска
+			.p-row_right
+				input(type="text" name="year")
+		.p-row
+			.p-row_left
+				span Удобное время для звонка
+			.p-row_right
+				label
+					input(type="radio" name="timecall" value="1")
+					span Утро (с 9:00 до 11:00)
+				label
+					input(type="radio" name="timecall" value="2") 
+					span Середина дня (с 13:00 до 17:00)
+				label
+					input(type="radio" name="timecall" value="3") 
+					span Вечер (с 16:00 до 18:00)
+		.p-row
+			.p-row_left
+				span Вопрос
+			.p-row_right
+				textarea(name="message")
+		input(type="hidden" name="formname" value="Вопрос специалисту")
+		input(type="submit" class="button" value="Отправить")
+.modal-window#consult
+	span.modal-close
+	h5 Запись на консультацию
+	form(class="form-consult" action="#")
+		.p-row
+			.p-row_left
+				span Имя
+			.p-row_right
+				input(type="text" name="uname")
+		.p-row
+			.p-row_left
+				span Телефон
+			.p-row_right
+				input(type="text" name="phone")
+		.p-row
+			.p-row_left
+				span Email
+			.p-row_right
+				input(type="text" name="email")
+		.p-row
+			.p-row_left
+				span Марка автомобиля
+			.p-row_right
+				input(type="text" name="marka")
+		.p-row
+			.p-row_left
+				span Год выпуска
+			.p-row_right
+				input(type="text" name="year")
+		.p-row
+			.p-row_left
+				span Удобная дата
+			.p-row_right
+				input(type="text" name="date")
+				p.graytext.
+					Консультации проводятся с понедельника по пятницу. Суббота и воскресенье - выходной.	
+		.p-row
+			.p-row_left
+				span Удобное время для звонка
+			.p-row_right
+				label
+					input(type="radio" name="timecall" value="1")
+					span Утро (с 9:00 до 11:00)
+				label
+					input(type="radio" name="timecall" value="2") 
+					span Середина дня (с 13:00 до 17:00)
+				label
+					input(type="radio" name="timecall" value="3") 
+					span Вечер (с 16:00 до 18:00)
+		.p-row
+			.p-row_left
+				span Дополнительная информация
+			.p-row_right
+				textarea(name="message")
+		input(type="hidden" name="formname" value="Запись на консультацию")
+		input(type="submit" class="button" value="Отправить")
+.modal-window-video#video
+	span.modal-close
+	#player
+.modal-window#thanks
+	span.modal-close
+	br
+	span.popup-title Спасибо за вашу заявку!
+	p.
+		В ближайшее время наш менеджер <br> свяжется с Вами.
+a(href="#thanks" data-modal="modal")
+script(src="https://api-maps.yandex.ru/2.1/?lang=tr_TR" type="text/javascript")
+script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+script(src="libs/fancybox/jquery.fancybox.js")
+script(src="libs/owl.carousel/owl.carousel.js")
+script(src="https://api-maps.yandex.ru/2.1/?lang=tr_TR" type="text/javascript")
+script(src="js/common.js")
